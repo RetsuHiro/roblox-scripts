@@ -213,7 +213,6 @@ local function createGUI()
         Options = {"Bandits | 5+", "Armed Bandits | 15+", "Shrooms | 30+", "Juniors | 45+", "Seniors | 65+", "Fly Heads | 80+", "Fire Shrooms | 110+", "Rogue Sorcerers | 125+", "Crabions | 140+", "Gnashers | 160+", "Hanamatos | 130+"},
         Callback = function(Value)
             selectedMobName = getArrayName(Value);
-            print("Selected "..selectedMobName.." quest for autofarm.")
         end    
     })
 

@@ -247,7 +247,7 @@ local function createGUI()
         end    
     })
     
-    AutofarmTab:AddLabel(string.format("V%s",getgenv().VERSION))
+    AutofarmTab:AddLabel(string.format("Version: %s",getgenv().VERSION))
     
 
     task.spawn(function()

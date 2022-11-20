@@ -53,7 +53,7 @@ getgenv().MoneyFarmToggled = false
 getgenv().Autofarm = false
 getgenv().modulesFarm = false
 getgenv().notDestroyed = false
-getgenv().VERSION = 1.0
+
 
 --//TEMP_VARIABLE(s)
 local selectedTool;
@@ -126,29 +126,24 @@ local function autoFarm()
 
     local enemy;
     while getgenv().Autofarm do
-        if player.Character:FindFirstChild("Humanoid") and player.Character:FindFirstChild("Humanoid").Health > 0 then
-            print"running";
+        if player.Character:FindFirstChild("Humanoid") and player.Character:FindFirstChild("Humanoid").Health > 0 and selectedTool and selectedMobName then
             equip();
     
             if QUESTLABELS[1].Text:lower():find("5/5") or QUESTLABELS[1].Text:lower():find("1/1") then
-                print("finished quest");
                 questController(true);
             end
             
             if QUESTLABELS[1].Text:len() <= 0 then
-                print"checking quest";
                 questController(false);
             end
     
             if not enemy or not enemy:FindFirstChild("HumaoidRootChild") or (enemy:FindFirstChild("Humanoid") and enemy.Humanoid.Health <= 0) then
-                print"getting new enemy";
                 local name = quests.start[selectedMobName][3]
                 name = string.sub(name,1,name:len()-1)
                 enemy = getMob(name); 
             end
     
             if enemy and player.Character:FindFirstChild("Humanoid").Health > 0 then
-                print("got enemy")
                 local mobPos = enemy.HumanoidRootPart.Position;
                 player.Character:FindFirstChild("HumanoidRootPart").CFrame = CFrame.new((mobPos + Vector3.new(0,-4.75,0)), mobPos)
                 attack();
@@ -175,7 +170,7 @@ end
 --//LAST
 local function createGUI()
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/oujaboard/cuddly-waddle/main/OrionUILibReuploadNoDiscord')))()
-    local Window = OrionLib:MakeWindow({Name = "Kaizen Script by Tetsu", HidePremium = false, SaveConfig = true, ConfigFolder = "Tetsu"})
+    local Window = OrionLib:MakeWindow({Name = "Kaizen Script by Retsu", HidePremium = false, SaveConfig = true, ConfigFolder = "Tetsu Retsu"})
     getgenv().notDestroyed = true
     local AutofarmTab = Window:MakeTab({
         Name = "Autofarm",
@@ -235,7 +230,7 @@ local function createGUI()
     })
 
     AutofarmTab:AddToggle({
-        Name = "Modules Open Toggle (Make sure to have it out in your hand!)",
+        Name = "Modules Open Toggle",
         Default = false,
         Callback = function(Value)
             getgenv().Autofarm = false
@@ -246,8 +241,6 @@ local function createGUI()
             end
         end    
     })
-    
-    AutofarmTab:AddLabel(string.format("Version: %s",getgenv().VERSION))
     
 
     task.spawn(function()

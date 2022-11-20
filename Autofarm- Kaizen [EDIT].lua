@@ -235,7 +235,7 @@ local function createGUI()
     })
 
     AutofarmTab:AddToggle({
-        Name = "Modules Open Toggle",
+        Name = "Modules Open Toggle (Make sure to have it out in your hand!)",
         Default = false,
         Callback = function(Value)
             getgenv().Autofarm = false

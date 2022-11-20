@@ -53,7 +53,7 @@ getgenv().MoneyFarmToggled = false
 getgenv().Autofarm = false
 getgenv().modulesFarm = false
 getgenv().notDestroyed = false
-
+getgenv().VERSION = 1.0
 
 --//TEMP_VARIABLE(s)
 local selectedTool;
@@ -246,6 +246,8 @@ local function createGUI()
             end
         end    
     })
+    
+    AutofarmTab:AddLabel(string.format("V%s",getgenv().VERSION))
     
 
     task.spawn(function()

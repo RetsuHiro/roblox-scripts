@@ -175,7 +175,7 @@ end
 --//LAST
 local function createGUI()
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/oujaboard/cuddly-waddle/main/OrionUILibReuploadNoDiscord')))()
-    local Window = OrionLib:MakeWindow({Name = "Kaizen Script by Retsu", HidePremium = false, SaveConfig = true, ConfigFolder = "Tetsu Retsu"})
+    local Window = OrionLib:MakeWindow({Name = "Kaizen Script by Tetsu", HidePremium = false, SaveConfig = true, ConfigFolder = "Tetsu"})
     getgenv().notDestroyed = true
     local AutofarmTab = Window:MakeTab({
         Name = "Autofarm",
